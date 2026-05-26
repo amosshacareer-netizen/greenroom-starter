@@ -22,7 +22,7 @@ npm run db:studio        # Drizzle Studio at local.drizzle.studio
 - `lib/dealMath.ts` — Calculation engine for all 5 deal types (flat, vs, % of net, % of gross, door). `quickCheckAmountMismatch()` for lightweight list-page checks.
 - `lib/queries.ts` — Server-side data fetching. `getAllShows()` for list page, `getShowById()` for detail/settlement.
 - `db/schema.ts` — Full schema with detailed comments on each table.
-- `db/seed.ts` — Deterministic 24-month synthetic dataset (501 past shows). Contains intentional data contradictions (breadcrumbs).
+- `db/seed.ts` — Deterministic 24-month synthetic dataset (500 past shows). Contains intentional data contradictions (breadcrumbs).
 - `app/shows/` — Shows list with "Needs review" filter. `[id]/` for detail, `[id]/settle/` for settlement worksheet.
 
 ## Key Conventions

@@ -133,9 +133,9 @@ A show is flagged if ANY of these are true:
 
 Deduplication: set union. Each show counted once.
 
-**Excluded:** expenses over cap (149 shows) and hospitality over cap (35 shows) — operational facts, not data problems. Including them inflated the count to 196; the current 116 is the right signal-to-noise ratio.
+**Excluded:** expenses over cap (149 shows) and hospitality over cap (35 shows) — operational facts, not data problems. Including them inflated the count to 196; the current 115 is the right signal-to-noise ratio.
 
-**Current count: 116 / 501 shows.**
+**Current count: 115 / 500 shows.**
 ```
 Independent counts:
   A. Data conflict:    23
@@ -144,7 +144,7 @@ Independent counts:
   D. Disputed:         20
   E. Revised:           1
 
-Set union: 23 → 54 → 105 → 116 → 116
+Set union: 23 → 54 → 105 → 115 → 115
 
 Key overlap: A∩C = 23 (all data conflicts also have amount mismatches —
 if the terms are wrong, the recorded payment is wrong too)
@@ -180,7 +180,7 @@ Database queries revealed intentional data quality issues that validated our app
 2. **Problem Space (2 min)**: Four core problems, causal chain. Key data point: 63% of deals unsupported, structured fields contradict freetext.
 3. **Core Insight (1 min)**: The pain isn't settling at 2am — it's that all prep work gets pushed to 2am. Parser warnings on Wednesday = knowing what breaks Friday.
 4. **Demo Walkthrough (4 min)**:
-   - Shows list: "Needs review" filter (116 shows), click to see only problematic ones
+   - Shows list: "Needs review" filter (115 shows), click to see only problematic ones
    - Pick a vs deal: line-by-line worksheet, source annotations, "Percentage wins"
    - Pick show_0005 (Winter Circle): percentage mismatch warning (85% vs 75%), parser uses correct value
    - Pick a show with amount mismatch: calculated vs recorded callout, explain why they differ

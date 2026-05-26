@@ -83,12 +83,12 @@ Deduplication: set union. Each show counted once regardless of how many flags ap
 
 **Excluded:** expenses over cap and hospitality over cap — operational facts, not data quality issues.
 
-**Current count: 116 / 501 shows.** Breakdown:
+**Current count: 115 / 500 shows.** Breakdown:
 - Data conflict: 23 (all 23 also have amount mismatches)
 - Complex deal: 53
 - Amount mismatch: 77
 - Disputed: 20, Revised: 1
-- After dedup: 116
+- After dedup: 115
 
 ---
 
@@ -113,7 +113,7 @@ No schema changes. No new dependencies. No env vars.
 
 **Complex deals flagged, not calculated.** 53 shows have walkout pots or tier ratchets. Base calculation still runs; warning says "showing base terms only."
 
-**23% needs-review rate.** 116 of 501 shows. Most are old. Production: severity tiers + time-based de-emphasis.
+**23% needs-review rate.** 115 of 500 shows. Most are old. Production: severity tiers + time-based de-emphasis.
 
 **One-directional freetext trust.** Parser always prefers freetext. If system field is updated but notes aren't, we use stale data. Production: compare edit timestamps.
 

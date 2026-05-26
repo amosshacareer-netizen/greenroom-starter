@@ -209,17 +209,17 @@ This was the longest iteration loop. The count went through several versions:
 - **196:** included everything (expense overruns, hospitality overruns, complex deals, data conflicts, disputes)
 - **42:** overcorrected — dropped complex deals and amount mismatches
 - **70:** added back complex deals but still missed amount mismatches
-- **116:** final — data conflicts (23) + complex deals (53) + amount mismatches (77) + disputed (20) + revised (1), deduplicated via set union
+- **115:** final — data conflicts (23) + complex deals (53) + amount mismatches (77) + disputed (20) + revised (1), deduplicated via set union
 
 The key product insight: if the actual payment differs from what we calculate, that IS the core signal. Amount mismatch belongs in "Needs review" because it means the settlement was computed with wrong data.
 
 ### Prompt 16: Verify the final number
-> Run a full audit script showing the exact calculation process for 116. Show each step of the set union.
+> Run a full audit script showing the exact calculation process for 115. Show each step of the set union.
 
-Verified: page logic and audit script both produce 116. Key overlap: A∩C = 23 (all data conflicts also have amount mismatches — expected, because wrong terms → wrong calculation).
+Verified: page logic and audit script both produce 115. Key overlap: A∩C = 23 (all data conflicts also have amount mismatches — expected, because wrong terms → wrong calculation).
 
 ### Prompt 17: Amount mismatch on list page
-> We need a lightweight amount check that doesn't require loading ticket sales and expenses for all 501 shows.
+> We need a lightweight amount check that doesn't require loading ticket sales and expenses for all 500 shows.
 
 Built `quickCheckAmountMismatch()` — uses the settlement's pre-computed `grossBoxOffice`, `netBoxOffice`, `totalExpenses` instead of raw arrays. Applies parsed deal terms + bonuses. Runs in the shows list server component without extra DB queries.
 
@@ -232,6 +232,6 @@ I used Claude Code throughout this project for:
 - **Analysis:** Consolidating findings, quantifying problems, prioritizing
 - **Implementation:** Writing the parser, extending the calculator, updating the UI
 - **Verification:** Testing across deal types, self-auditing against criteria, MECE breakdown of warning counts
-- **Calibration:** Iterating on "Needs review" definition (196 → 42 → 70 → 116) — AI ran the audits, I made the product judgment calls on what counts
+- **Calibration:** Iterating on "Needs review" definition (196 → 42 → 70 → 115) — AI ran the audits, I made the product judgment calls on what counts
 
 My judgment drove: which slice to pick, what to cut, design principles (2am context, scannable layout), the decision to use regex over API, which breadcrumbs to surface, and critically — what belongs in "Needs review" (data problems yes, operational facts no).
